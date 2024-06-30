@@ -13,6 +13,9 @@ public class SimpleShortenUrlService {
 
     private ShortenUrlRepository shortenUrlRepostitory;
 
+    public SimpleShortenUrlService() {
+    }
+
     public SimpleShortenUrlService(ShortenUrlRepository shortenUrlRepostitory) {
         this.shortenUrlRepostitory = shortenUrlRepostitory;
     }

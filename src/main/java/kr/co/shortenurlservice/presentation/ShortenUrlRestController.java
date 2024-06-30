@@ -15,6 +15,9 @@ public class ShortenUrlRestController {
 
     private SimpleShortenUrlService simpleShortenUrlService;
 
+    public ShortenUrlRestController() {
+    }
+
     public ShortenUrlRestController(SimpleShortenUrlService simpleShortenUrlService) {
         this.simpleShortenUrlService = simpleShortenUrlService;
     }
