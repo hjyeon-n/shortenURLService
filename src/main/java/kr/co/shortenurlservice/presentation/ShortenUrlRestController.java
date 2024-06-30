@@ -2,6 +2,7 @@ package kr.co.shortenurlservice.presentation;
 
 import jakarta.validation.Valid;
 import kr.co.shortenurlservice.application.SimpleShortenUrlService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ public class ShortenUrlRestController {
     public ShortenUrlRestController() {
     }
 
+    @Autowired
     public ShortenUrlRestController(SimpleShortenUrlService simpleShortenUrlService) {
         this.simpleShortenUrlService = simpleShortenUrlService;
     }

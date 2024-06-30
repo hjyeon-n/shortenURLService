@@ -6,6 +6,7 @@ import kr.co.shortenurlservice.domain.ShortenUrl;
 import kr.co.shortenurlservice.presentation.ShortenUrlCreateRequestDto;
 import kr.co.shortenurlservice.presentation.ShortenUrlCreateResponseDto;
 import kr.co.shortenurlservice.presentation.ShortenUrlInformationDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,7 @@ public class SimpleShortenUrlService {
     public SimpleShortenUrlService() {
     }
 
+    @Autowired
     public SimpleShortenUrlService(ShortenUrlRepository shortenUrlRepostitory) {
         this.shortenUrlRepostitory = shortenUrlRepostitory;
     }
