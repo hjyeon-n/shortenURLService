@@ -1,6 +1,5 @@
 package kr.co.shortenurlservice.presentation;
 
-import kr.co.shortenurlservice.application.ShortenUrlRepository;
 import kr.co.shortenurlservice.application.SimpleShortenUrlService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,27 +8,23 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(ShortenUrlRestController.class)
-class ShortenUrlRestControllerTest {
+@WebMvcTest(controllers = ShortenUrlRestController.class)
+public class ShortenUrlRestControllerTest {
 
     @MockBean
-    private ShortenUrlRepository shortenUrlRepository;
+    private SimpleShortenUrlService simpleShortenUrlService;
 
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private SimpleShortenUrlService simpleShortenUrlService;
-
     @Test
-    @DisplayName("원래의 URL로 리다이렉트 되어야 한다.")
+    @DisplayName("원래의 URL로 리다이렉트 되어야 한다")
     void redirectTest() throws Exception {
         String expectedOriginalUrl = "https://google.com";
 
@@ -40,5 +35,4 @@ class ShortenUrlRestControllerTest {
                 .andExpect(status().isMovedPermanently())
                 .andExpect(header().string("Location", expectedOriginalUrl));
     }
-
 }
